@@ -1,25 +1,38 @@
 
 
-def su_hesapla(kilo):
-    k_hesapla=kilo  *0.03
-    e_hesapla=kilo  *0.04
-    cinsiyet=input("lütfen cinsiyetinizi giriniz").lower()
-    if cinsiyet=="erkek":
-        print("-" * 30)
-        print(e_hesapla,"litre su içmelisiniz")
-        print("cinsiyetiniz", cinsiyet)
-        print("-" * 30)
-    elif cinsiyet=="kadın":
-        print("-" * 30)
-        print("cinsiyetiniz",cinsiyet)
-        print(k_hesapla,"litre su içmelisiniz")
-        print("-" * 30)
-    elif not cinsiyet:
-        print("-"*30)
-        print("lütfen cinsiyetinizi giriniz")
-        print("-"*30)
-kilo_al=int(input("lütfen kilonuzu giriniz"))
+tel_rehber=dict()
 
-su_hesapla(kilo_al)
-def yag_oran(yag):
+def kişiekle(x):
+    print(" *kişi ekleme ekranına hoşgeldiniz*")
+    isim=input("numarasını ekliyceğiniz kişinin ismi")
+    numara=input("ekleyeceğiniz kişinin numarası ")
+    x=tel_rehber.setdefault(isim,numara)
+
+
+def kişigöster(x):
+
+    print(" *rehbere hoşgeldiniz*")
+    kişisayısı = len(x)
+    print("rehberinizdeki kişi sayısı", kişisayısı)
+    for i,j in x.items():
+        print(i,"",j)
+
+def numarasil(x):
+    print(" *kişi silme ekranına hoşgeldiniz*")
+    silinecekkişi=input("silinecek kişiyi yazınız")
+    x=tel_rehber.pop(silinecekkişi)
+
+while True:
+    işlem=int(input("yapacagınız işlemi seçin 1-numara ekle ,2-numara göster,3-numaraları sil"))
+    if işlem==1:
+        kişiekle(tel_rehber)
+    elif işlem==2:
+        kişigöster(tel_rehber)
+    elif işlem==3:
+        numarasil(tel_rehber)
+    else:
+        print("lütfen istenen tuşlara basınız")
+
+
+
 
